@@ -54,12 +54,12 @@ const Logo = ({ scale = 1, color = BRAND.white }) => (
   </svg>
 );
 
-// ─── Scene 1 · Intro  (frames 0–89 inside the sequence) ──────────────────────
+// ─── Scene 1 · Intro  (frames 0–179 inside the sequence) ─────────────────────
 const IntroScene = () => {
   const f = useCurrentFrame();
-  const opacity = fade(f, 0, 30) * fadeOut(f, 70, 89);
+  const opacity = fade(f, 0, 20) * fadeOut(f, 160, 179);
   const logoScale = springIn(f, 10);
-  const subFade = fade(f, 35, 60);
+  const subFade = fade(f, 30, 55);
 
   return (
     <AbsoluteFill
@@ -99,7 +99,7 @@ const IntroScene = () => {
 // ─── Scene 2 · ¿Qué hacemos? ─────────────────────────────────────────────────
 const WhatWeDoScene = () => {
   const f = useCurrentFrame();
-  const opacity = fade(f, 0, 25) * fadeOut(f, 65, 89);
+  const opacity = fade(f, 0, 20) * fadeOut(f, 160, 179);
   const titleS = springIn(f, 8);
   const card1S = springIn(f, 20);
   const card2S = springIn(f, 30);
@@ -165,7 +165,7 @@ const WhatWeDoScene = () => {
 // ─── Scene 3 · Paleta de 1.600 colores ───────────────────────────────────────
 const PaletteScene = () => {
   const f = useCurrentFrame();
-  const opacity = fade(f, 0, 25) * fadeOut(f, 65, 89);
+  const opacity = fade(f, 0, 20) * fadeOut(f, 160, 179);
 
   // All spring hooks at component top-level (no loops)
   const s0  = springIn(f, 15);
@@ -240,7 +240,7 @@ const PaletteScene = () => {
 // ─── Scene 4 · Servicios ──────────────────────────────────────────────────────
 const ServicesScene = () => {
   const f = useCurrentFrame();
-  const opacity = fade(f, 0, 25) * fadeOut(f, 65, 89);
+  const opacity = fade(f, 0, 20) * fadeOut(f, 160, 179);
 
   const s0 = springIn(f, 15);
   const s1 = springIn(f, 25);
@@ -314,10 +314,10 @@ const ServicesScene = () => {
 // ─── Scene 5 · CTA Final ──────────────────────────────────────────────────────
 const CTAScene = () => {
   const f = useCurrentFrame();
-  const opacity = fade(f, 0, 30);
+  const opacity = fade(f, 0, 20);
   const logoS = springIn(f, 10);
-  const textFade = fade(f, 25, 55);
-  const ctaFade = fade(f, 50, 80);
+  const textFade = fade(f, 25, 50);
+  const ctaFade = fade(f, 55, 80);
   const pulse = interpolate(Math.sin((f / 30) * Math.PI * 2), [-1, 1], [0.97, 1.03]);
 
   return (
@@ -378,11 +378,11 @@ const CTAScene = () => {
 export const ColorshopPresentation = () => {
   return (
     <AbsoluteFill style={{ background: BRAND.offWhite }}>
-      <Sequence from={0}   durationInFrames={90}><IntroScene /></Sequence>
-      <Sequence from={90}  durationInFrames={90}><WhatWeDoScene /></Sequence>
-      <Sequence from={180} durationInFrames={90}><PaletteScene /></Sequence>
-      <Sequence from={270} durationInFrames={90}><ServicesScene /></Sequence>
-      <Sequence from={360} durationInFrames={90}><CTAScene /></Sequence>
+      <Sequence from={0}   durationInFrames={180}><IntroScene /></Sequence>
+      <Sequence from={180} durationInFrames={180}><WhatWeDoScene /></Sequence>
+      <Sequence from={360} durationInFrames={180}><PaletteScene /></Sequence>
+      <Sequence from={540} durationInFrames={180}><ServicesScene /></Sequence>
+      <Sequence from={720} durationInFrames={180}><CTAScene /></Sequence>
     </AbsoluteFill>
   );
 };
